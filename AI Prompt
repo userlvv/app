@@ -1,0 +1,24 @@
+Genereer een volledige, professionele index.html voor een chique restaurant genaamd "The Project".
+
+Eisen:
+- Modern fine-dining concept in Nijmegen
+- Dark theme (zwart/antraciet) met subtiele gouden accenten
+- Google Fonts: Playfair Display (koppen) en Inter (body)
+- Responsive (mobile-first)
+- Alleen pure HTML5 (geen frameworks, geen JavaScript)
+- CSS koppelen via: css/styles.css
+- Gebruik semantische HTML (header, nav, main, section, footer)
+- Logische en professionele class-namen
+- Geschikt om later dynamisch te maken met PHP
+
+De pagina moet bevatten:
+- Navigatie (Home, Menu, Galerie, Contact + Beheer knop naar admin/login.html)
+- Hero-sectie met headline, korte tekst en 2 knoppen
+- "Our Philosophy" sectie met 3 cards
+- Contactsectie met adres, openingstijden en simpel formulier
+- Minimalistische footer
+
+Gebruik nette comments en geen lorem ipsum.
+Geef alleen de volledige index.html terug.
+
+help me met user stories voor admin en gebruiker
