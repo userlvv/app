@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "config/db.php";
 ?>
 <!doctype html>
@@ -123,7 +124,7 @@ require "config/db.php";
         <div class="container footer__inner">
             <p class="footer__text">© <span>2026</span> The Project — Nijmegen</p>
             <p class="footer__text footer__text--muted">Crafted with precision.</p>
-            <a class="button button--outline" href="admin/login.php">Beheer</a>
+            <a class="button button--outline" href="login.php">Beheer</a>
         </div>
     </footer>
 </body>

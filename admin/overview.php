@@ -1,37 +1,66 @@
 <?php
+session_start();
 require "../config/db.php";
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login.php');
+    exit;
+}
 ?>
 <!doctype html>
 <html lang="nl">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Project — Admin Overview</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap"
-    rel="stylesheet" />
-
+  <title>The Project — Gerechten Beheer</title>
   <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* Kolomverdeling zoals gevraagd */
+    .admin-table__row {
+      display: grid;
+      grid-template-columns: 50px 1fr 100px 150px 200px;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      background-color: #121212;
+    }
+    .admin-table__row--head {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      background-color: #222;
+    }
+    .admin-table__row > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .admin-table__actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .admin-table__actions .button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
-<body>
-
+<body class="admin">
 <header class="site-header">
   <div class="container header__inner">
-    <a class="brand" href="../index.php">
+    <a class="brand" href="../index.php" aria-label="The Project home">
       <span class="brand__name">The Project</span>
-      <span class="brand__tagline">Admin • Overzicht</span>
+      <span class="brand__tagline">Admin • Gerechten</span>
     </a>
 
-    <nav class="nav">
-      <a class="nav__link is-active" href="overview.php">Overview</a>
-      <a class="nav__link" href="gerechtbewerking.php">Gerechten</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a class="nav__link" href="dashboard.php">Dashboard</a>
+      <a class="nav__link is-active" href="gerechtbewerking.php">Gerechten</a>
       <a class="nav__link" href="../index.php">Website</a>
-      <a class="nav__link" href="login.php">Uitloggen</a>
+      <a class="nav__link" href="logout.php">Uitloggen</a>
     </nav>
   </div>
 </header>
@@ -39,81 +68,23 @@ require "../config/db.php";
 <main>
   <section class="section admin-overview">
     <div class="container">
-
       <header class="section__header">
-        <p class="pill">Admin • Messages • Orders</p>
-        <h1 class="section__title">Overview</h1>
-        <p class="section__subtitle">
-          Contactberichten en bestellingen.
-        </p>
+        <h1 class="section__title">Gerechten Beheer</h1>
+        <button class="button button--primary" style="margin-bottom: 1rem;">Nieuw gerecht toevoegen</button>
       </header>
 
-      <div class="split">
+      <div class="admin-table">
+        <div class="admin-table__row admin-table__row--head">
+          <div>#</div>
+          <div>Naam</div>
+          <div>Prijs</div>
+          <div>Categorie</div>
+          <div>Acties</div>
+        </div>
 
-        <!-- CONTACTBERICHTEN -->
-        <section class="panel panel--soft">
-          <div class="admin-head">
-            <div>
-              <h2 class="panel__title">Contactberichten</h2>
-              <p class="panel__text">Binnengekomen berichten.</p>
-            </div>
-          </div>
-
-          <div class="admin-table">
-
-            <div class="admin-table__row admin-table__row--head">
-              <div>Datum</div>
-              <div>Naam</div>
-              <div>Onderwerp</div>
-              <div>Status</div>
-            </div>
-
-            <!-- HIER KOMT JOUW PHP LOOP -->
-            <!--
-            <div class="admin-table__row">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div><span class="tag"></span></div>
-            </div>
-            -->
-
-          </div>
-        </section>
-
-        <!-- BESTELLINGEN -->
-        <section class="panel panel--soft">
-          <div class="admin-head">
-            <div>
-              <h2 class="panel__title">Bestellingen</h2>
-              <p class="panel__text">Recente orders.</p>
-            </div>
-          </div>
-
-          <div class="admin-table">
-
-            <div class="admin-table__row admin-table__row--head">
-              <div>#</div>
-              <div>Klant</div>
-              <div>Totaal</div>
-              <div>Status</div>
-            </div>
-
-            <!-- HIER KOMT JOUW PHP LOOP -->
-            <!--
-            <div class="admin-table__row">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div><span class="tag"></span></div>
-            </div>
-            -->
-
-          </div>
-        </section>
+        <!-- Hier vul je straks met PHP je gerechten uit de database -->
 
       </div>
-
     </div>
   </section>
 </main>

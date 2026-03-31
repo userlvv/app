@@ -1,3 +1,27 @@
+<?php
+session_start();
+require "config/db.php";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $stmt = $connect->prepare("SELECT * FROM adminlogin WHERE username = ? AND pass_hash = ?");
+    $stmt->execute([$username, $password]);
+    $user = $stmt->fetch();
+
+    if ($user) {
+        $_SESSION['user_id'] = $user['id'];
+        header("Location: admin/dashboard.php");
+        exit;
+    } else {
+        $error = "Verkeerde gebruikersnaam of wachtwoord";
+    }
+}
+
+
+?>
+
 <!doctype html>
 <html lang="nl">
 <head>
@@ -35,14 +59,15 @@
       <div class="auth">
         <div class="auth__header">
           <h1 class="section__title">Beheer Login</h1>
-          <p class="section__subtitle">Alleen voor beheerders. Template zonder backend.</p>
+          <p class="section__subtitle">Alleen voor beheerders.</p>
         </div>
 
         <div class="panel">
-          <form class="form" action="#" method="post" aria-label="Login formulier">
+			
+          <form class="form" method="post" aria-label="Login formulier">
             <label class="field">
               <span class="field__label">E-mail</span>
-              <input class="field__input" type="email" name="email" autocomplete="username" placeholder="admin@theproject.example" required />
+              <input class="field__input" type="text" name="username" autocomplete="username" placeholder="admin@theproject.example" required/>
             </label>
 
             <label class="field">
