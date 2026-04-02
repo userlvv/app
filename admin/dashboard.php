@@ -45,6 +45,21 @@ if (!isset($_SESSION['user_id'])) {
       padding: 0.4rem 0.8rem;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 700px) {
+      .admin-table__row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .admin-table__row--head {
+        display: none;
+      }
+
+      .admin-table__actions {
+        justify-content: flex-start;
+      }
+    }
   </style>
 </head>
 

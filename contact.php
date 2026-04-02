@@ -34,6 +34,8 @@ require "config/db.php";
         <a class="nav__link" href="menu.php">Menu</a>
         <a class="nav__link" href="galerie.php">Galerie</a>
         <a class="nav__link is-active" href="contact.php">Contact</a>
+        <a class="nav__link" href="reservering.php">Reserveren</a>
+        <a class="nav__link" href="winkelwagen.php">Bestelling</a>
       </nav>
     </div>
   </header>

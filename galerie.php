@@ -28,7 +28,7 @@ require "config/db.php";
                 <span class="brand__tagline">Nijmegen • Modern Fine Dining</span>
             </a>
 
-            <nav class="nav">
+            <nav class="nav" aria-label="Hoofdnavigatie">
                 <a class="nav__link" href="index.php">Home</a>
                 <a class="nav__link" href="menu.php">Menu</a>
                 <a class="nav__link is-active" href="galerie.php">Galerie</a>

@@ -34,9 +34,9 @@ if (!isset($_SESSION['user_id'])) {
       <span class="brand__tagline">Admin • Overzicht</span>
     </a>
 
-    <nav class="nav">
-      <a class="nav__link is-active" href="dashboard.php">Dashboard</a>
-      <a class="nav__link" href="gerechtbewerking.php">Gerechten</a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a class="nav__link" href="dashboard.php">Dashboard</a>
+      <a class="nav__link is-active" href="gerechtbewerking.php">Gerechten</a>
       <a class="nav__link" href="../index.php">Website</a>
       <a class="nav__link" href="logout.php">Uitloggen</a>
     </nav>

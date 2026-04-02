@@ -32,20 +32,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
 
-  <!-- Let op: vanuit /admin/ moet je één niveau omhoog -->
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body class="admin">
 <header class="site-header">
   <div class="container header__inner">
-    <a class="brand" href="../index.php" aria-label="The Project home">
+    <a class="brand" href="index.php" aria-label="The Project home">
       <span class="brand__name">The Project</span>
       <span class="brand__tagline">Admin • Beheer</span>
     </a>
 
     <nav class="nav" aria-label="Hoofdnavigatie">
-      <a class="nav__link" href="../index.php">Website</a>
+      <a class="nav__link" href="index.php">Home</a>
+      <a class="nav__link" href="menu.php">Menu</a>
+      <a class="nav__link" href="galerie.php">Galerie</a>
+      <a class="nav__link" href="contact.php">Contact</a>
+      <a class="nav__link" href="reservering.php">Reserveren</a>
+      <a class="nav__link" href="winkelwagen.php">Bestelling</a>
       <a class="nav__link is-active" href="login.php">Login</a>
     </nav>
   </div>
@@ -75,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="form__actions">
               <button class="button button--primary" type="submit">Inloggen</button>
-              <a class="button button--outline" href="../index.php">Terug</a>
+              <a class="button button--outline" href="index.php">Terug</a>
             </div>
   
           </form>
