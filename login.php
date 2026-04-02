@@ -18,8 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Verkeerde gebruikersnaam of wachtwoord";
     }
 }
-
-
 ?>
 
 <!doctype html>
