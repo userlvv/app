@@ -38,6 +38,11 @@ $categoriehc = [
       margin-bottom: 0.5rem;
       background-color: #121212;
     }
+    @media (max-width: 900px) {
+      .admin-table__row {
+        grid-template-columns: 40px 1fr 80px 120px 150px;
+      }
+    }
     .admin-table__row--head {
       font-weight: 700;
       text-transform: uppercase;
@@ -92,6 +97,43 @@ $categoriehc = [
       background: var(--panel);
     }
 
+    @media (max-width: 1024px) {
+      .admin-overview .menu-item {
+        grid-template-columns: 1fr 100px 120px;
+      }
+
+      .admin-overview .menu-item__actions {
+        grid-column: span 3;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .admin-overview .menu-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .admin-overview .menu-item__title {
+        font-size: 1.1rem;
+      }
+
+      .admin-overview .menu-item__price,
+      .admin-overview .menu-item__category {
+        font-size: 0.95rem;
+      }
+
+      .admin-overview .menu-item__actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .admin-overview .menu-item__actions .button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     .admin-overview .menu-item__title {
       font-weight: 700;
       color: var(--text);
@@ -110,6 +152,21 @@ $categoriehc = [
       display: flex;
       justify-content: flex-end;
       gap: 8px;
+    }
+
+    .button {
+      min-height: 36px;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .section__title {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
@@ -148,7 +205,7 @@ $categoriehc = [
           <div>Acties</div>
         </div>
 
-        <section class="menu-grid">
+        <section class="menu-grid" style="width:100%;">
         <?php foreach ($result as $gerecht): ?>
           <div class="menu-item">
             <h3 class="menu-item__title">
@@ -164,8 +221,8 @@ $categoriehc = [
             </p>
 
             <div class="menu-item__actions">
-              <a href="geredit.php?id=<?= $gerecht['id'] ?>" class="button">Bewerk</a>
-              <a href="gerdelete.php?id=<?= $gerecht['id'] ?>" class="button">Verwijder</a>
+              <a href="geredit.php?id=<?= $gerecht['id'] ?>" class="button button--primary">Bewerk</a>
+              <a href="gerdelete.php?id=<?= $gerecht['id'] ?>" class="button button--outline">Verwijder</a>
             </div>
           </div>
         <?php endforeach; ?>
